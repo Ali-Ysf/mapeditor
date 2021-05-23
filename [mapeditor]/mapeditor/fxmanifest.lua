@@ -16,17 +16,20 @@ files {
 	'html/index.html',
 	'html/style.css',
 	'html/script.js',
-	'data/ObjectList.ini',
-	'data/ObjectList.json',
 	'data/img/crosshair.png',
 	'data/img/object.png',
 	'client/crosshair.png',
-	'crosshair.png'
+	'crosshair.png',
+	
+	'data/elementsList/object.json',
+	'data/elementsList/vehicle.json'
 }
 
 server_scripts {
+	'server/HashToName.lua',
 	'server/globals.lua',
 	'edf/edf_shared.lua',
+	'edf/edf_elements.lua',
 	'edf/edf.lua',
 	'server/elementmanager.lua',
 	'server/saveload.lua',
@@ -37,6 +40,7 @@ client_scripts {
 	'config.lua',
 	'edf/edf_shared.lua',
 	'client/utils.lua',
+	'edf/edf_elements.lua',
 	'edf/edf_client.lua',
 	'client/mapsettings.lua',
 	'client/settings.lua',
