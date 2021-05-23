@@ -1,0 +1,88 @@
+{
+	"name": "Basic element types definition",
+	"elements": [
+		{
+			"type": "object",
+			"name": "object",
+			"friendlyname": "Object",
+			"icon": "fa fa-dropbox",
+			"shortcut": "model",
+			"data": [
+				{"name":"model", "type":"objectID", "description":"Object model", "default":"apa_mp_apa_crashed_usaf_01a", "disabled":"true"},
+				{"name":"position", "type":"coord3d", "description":"XYZ position", "default":"0,0,0"},
+				{"name":"rotation", "type":"coord3d", "description":"XYZ rotation", "default":"0,0,0"},
+				{"name":"texture_variant", "type":"selection:true,false", "description":"Object collisions", "required":"false", "default":"true"},
+				{"name":"alpha", "type":"integer", "description":"Alpha level", "default":"255"},
+				{"name":"collisions", "type":"selection:true,false", "description":"Object collisions", "required":"false", "default":"true"}
+			]
+		},
+		{
+			"type": "vehicle",
+			"name": "vehicle",
+			"friendlyname": "Vehicle",
+			"icon": "fa fa-car",
+			"shortcut": "model",
+			"data": [
+				{"name":"model", "type":"vehicleID", "description":"Vehicle model", "default":"Infernus"},
+				{"name":"position", "type":"coord3d", "description":"XYZ position", "default":"0,0,0"},
+				{"name":"rotation", "type":"coord3d", "description":"XYZ rotation", "default":"0,0,0"},
+				{"name":"primary color", "type":"color", "description":"RGB vehicle color 1", "required":"false"},
+				{"name":"secondary color", "type":"color", "description":"RGB vehicle color 2", "required":"false"},
+				{"name":"color3", "type":"color", "description":"RGB vehicle color 3", "required":"false"},
+				{"name":"color4", "type":"color", "description":"RGB vehicle color 4", "required":"false"},
+				{"name":"paintjob", "type":"selection:0,1,2,3", "description":"Vehicle paintjob", "required":"false"},
+				{"name":"upgrades", "type":"vehicleupgrades", "description":"Installed vehicle upgrades", "required":"false"},
+				{"name":"health", "type":"integer", "description":"Vehicle health (0-1000)", "default":"1000"},
+				{"name":"alpha", "type":"integer", "description":"Alpha level", "default":"255"},
+				{"name":"frozen", "type":"selection:false,true", "description":"Frozen", "required":"false", "default":"false"},
+				{"name":"collisions", "type":"selection:true,false", "description":"Vehicle collisions", "required":"false", "default":"true"},
+				{"name":"locked", "type":"selection:false,true", "description":"Locked", "required":"false", "default":"false"},
+				{"name":"landingGearDown", "type":"selection:false,true", "description":"Set landing gear down", "required":"false", "default":"true"}
+			]
+		},
+		{
+			"type": "ped",
+			"name": "ped",
+			"friendlyname": "Ped",
+			"icon": "fa fa-male",
+			"data": [
+				{"name":"model", "type":"skinID", "description":"Ped skin model", "default":"Franklin"},
+				{"name":"position", "type":"coord3d", "description":"XYZ position", "default":"0,0,0"},
+				{"name":"rotZ", "type":"number", "description":"Z rotation", "default":"0"},
+				{"name":"interior", "type":"integer", "description":"GTA interior world", "default":"0"},
+				{"name":"dimension", "type":"integer", "description":"MTA dimension", "default":"0"},
+				{"name":"frozen", "type":"selection:false,true", "description":"Frozen", "required":"false", "default":"false"},
+				{"name":"collisions", "type":"selection:true,false", "description":"Ped collisions", "required":"false", "default":"true"},
+				{"name":"health", "type":"integer", "description":"Ped health", "default":"100"},
+				{"name":"armor", "type":"integer", "description":"Ped armor", "default":"0"},
+				{"name":"alpha", "type":"integer", "description":"Alpha level", "default":"255"}
+			]
+		},
+		{
+			"type": "pickup",
+			"name": "pickup",
+			"friendlyname": "Pickup",
+			"icon": "fa fa-suitcase",
+			"data": [
+				{"name":"position", "type":"coord3d", "description":"XYZ position", "default":"0,0,0"},
+				{"name":"type", "type":"pickupType", "description":"Pickup type", "default":"PICKUP_CAMERA"},
+				{"name":"amount", "type":"number", "description":"Health points, armor points or weapon ammo", "default":"100"},
+				{"name":"respawn", "type":"integer", "description":"Respawn time in miliseconds", "default":"30000"}
+			]
+		},
+		{
+			"type": "marker",
+			"name": "marker",
+			"friendlyname": "fa fa-map-marker",
+			"icon": "fa fa-map-marker",
+			"data": [
+				{"name":"position", "type":"coord3d", "description":"XYZ position", "default":"0,0,0"},
+				{"name":"rotation", "type":"coord3d", "description":"XYZ rotation", "default":"0,0,0"},
+				{"name":"size", "type":"coord3d", "description":"XYZ size", "default":"1,1,1"},
+				{"name":"type", "type":"markerType", "description":"Marker type", "default":"VerticalCylinder"},
+				{"name":"size", "type":"number", "description":"Marker size", "default":"1"},
+				{"name":"color", "type":"color", "description":"Color (#RRGGBBAA hex string)", "default":"#00F9"}
+			]
+		}
+	]
+}

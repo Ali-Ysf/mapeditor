@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.css" integrity="sha512-EhS3ScT4pPbaBKduk1uogfaKwFP9LzodMlLzRMapRqJrhoOV6K/s6FMb00JlinE0xVUMVDS6BazFaUnlbIKXEw==" crossorigin="anonymous" />
+	</head>
+	<body>
+		<input type="text" placeholder="Search..." onchange="onSearch(this.value)" />
+		<div class="clusterize">
+		  <table>
+			<thead>
+			  <tr>
+				<th>Headers</th>
+			  </tr>
+			</thead>
+		  </table>
+		  <div id="scrollArea" class="clusterize-scroll">
+			<table>
+			  <tbody id="contentArea" class="clusterize-content">
+				<tr class="clusterize-no-data">
+				  <td>Loading data…</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.js" integrity="sha512-J9kWigtolF+Ur3ozrZwj18sLPTeAFNiwLxFHaXtmjKao7MZ1g3UWnTn8y1ChS48V2JM7ErQV2r1uMeMaplN+EA==" crossorigin="anonymous"></script>
+<script>
+var data = [];
+for (let i=0; i<60000; i++){
+	data[i] = '<tr><td>Data '+i+'</td></tr>';
+}
+var clusterize = new Clusterize({
+  rows: data,
+  scrollId: 'scrollArea',
+  contentId: 'contentArea'
+});
+
+var filterRows = function(rows) {
+  var results = [];
+  for(var i = 0, ii = rows.length; i < ii; i++) {
+    if(rows[i].active) results.push(rows[i].markup)
+  }
+  return results;
+}
+
+var onSearch = function() {
+  for(var i = 0, ii = data.length; i < ii; i++) {
+    var suitable = false;
+	console.log(data[0].values);
+    for(var j = 0, jj = data[i].values.length; j < jj; j++) {
+      if(data[i].values[j].toString().indexOf(search.value) + 1)
+        suitable = true;
+    }
+    data[i].active = suitable;
+  }
+  clusterize.update(filterRows(data));
+}
+</script>
+	</body>
+</html>
